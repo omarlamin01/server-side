@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 router.get('/', (req, res) => {
-    res.send('Server is up and running', 200);
+    res.status(200).send('Server is up and running');
 });
 
 module.exports = router;
