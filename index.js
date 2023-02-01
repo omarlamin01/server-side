@@ -20,4 +20,4 @@ io.on('connection', (socket) => {
 
 app.use(router);
 
-server.listen(PORT, () => console.log(`Server has started on port ${PORT}`));
+server.listen(PORT, () => console.log(`Server has started on localhost:${PORT}`));
