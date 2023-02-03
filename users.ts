@@ -20,7 +20,12 @@ const addUser = ({id, name, room}) => {
 
 };
 
-const removeUser = () => {
+const removeUser = (id) => {
+    const index : number = users.findIndex((user) => { user.id === id });
+
+    if (index != -1) {
+        return users.splice(index, 1)[0];
+    }
 };
 
 const getUser = () => {
