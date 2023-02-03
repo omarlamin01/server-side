@@ -1,6 +1,6 @@
 const express = require('express');
-const socketio = require('socket.io');
 const http = require('http');
+const socketio = require('socket.io');
 const cors = require('cors');
 
 const PORT = process.env.PORT || 5000;
@@ -8,13 +8,16 @@ const PORT = process.env.PORT || 5000;
 const router = require('./router');
 
 const app = express();
-const server = http.createServer(app);
-const io = socketio(server);
 
-const corsOptions = {
-    origin: 'http://localhost:3000/',
-    optionsSuccessStatus: 200
-};
+const server = http.createServer(app);
+
+const io = socketio(server, {
+    cors: {
+        origin: true,
+        credentials: true,
+    },
+    allowEIO3: true,
+});
 
 io.on('connection', (socket) => {
     console.log('We have a new connection!!!');
@@ -25,6 +28,5 @@ io.on('connection', (socket) => {
 });
 
 app.use(router);
-app.use(cors(corsOptions));
 
 server.listen(PORT, () => console.log(`Server has started on localhost:${PORT}`));
