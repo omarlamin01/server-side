@@ -22,9 +22,6 @@ const io = socketio(server, {
 io.on('connection', (socket) => {
     socket.on('join', ({name, room}, callback) => {
         console.log(name, room);
-        if (true) {
-            callback({err: 'This error is from server side.'})
-        }
     })
 
     socket.on('disconnect', () => {
