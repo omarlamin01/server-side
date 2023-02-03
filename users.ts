@@ -30,8 +30,7 @@ const removeUser = (id) => {
 
 const getUser = (id) => users.find((user) => user.id === id);
 
-const getUsersOfRoom = () => {
-};
+const getUsersOfRoom = (room) => users.filter((user) => { user.room === room });
 
 var formatName = (name: string): string => {
     return name.trim().toLocaleLowerCase().replace(' ', '');
