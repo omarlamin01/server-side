@@ -35,3 +35,5 @@ const getUsersOfRoom = (room) => users.filter((user) => { user.room === room });
 var formatName = (name: string): string => {
     return name.trim().toLocaleLowerCase().replace(' ', '');
 }
+
+module.exports = { addUser, getUser, removeUser, getUsersOfRoom }
